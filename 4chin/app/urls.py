@@ -8,4 +8,5 @@ urlpatterns = [
     path("home/<str:usernameLogin>", views.home, name="home"),
     path("delete_post/<int:post_id>/<str:username>", views.delete_post, name="delete_post"),
     path("make_comment/<int:post_id>/<str:username>", views.make_comment, name="make_comment"),
+    path("delete_comment/<int:comment_id>/<str:username>", views.delete_comment, name="delete_comment"),
 ]

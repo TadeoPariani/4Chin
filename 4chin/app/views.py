@@ -5,15 +5,15 @@ from datetime import datetime
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        user = User(username=username, 
-                    email=email, 
-                    password=password
+        usernameRegister = request.POST['username']
+        emailRegister = request.POST['email']
+        passwordRegister = request.POST['password']
+        user = User(username=usernameRegister, 
+                    email=emailRegister, 
+                    password=passwordRegister
                     )
         user.save()
-        return redirect('home')  
+        return redirect(f'home/{usernameRegister}')  
     return render(request, 'app/register.html')
 
 
@@ -34,19 +34,10 @@ def login(request):
 
 
 def home(request, usernameLogin):
-    users = User.objects.all()
-    categories = Category.objects.all()
-    posts = Post.objects.all()
-    comments = Comment.objects.all()
-    
     context = {
-        'users': users,
         'username':usernameLogin,
-        'categories':categories,
-        'posts':posts,
-        'comments': comments
     }
-
+    # CREAR UN POST. DEBERIA SER OTRA VIEW SEPARADA
     if request.method == "POST":
         author = User.objects.get(username=usernameLogin)
         creation_date = datetime.now()
@@ -77,4 +68,9 @@ def make_comment(request, post_id, username):
     creation_date = datetime.now()
     newComment = Comment(text=comment, author=author, post=post, creation_date = creation_date )
     newComment.save()
+    return redirect('home', usernameLogin=username)
+
+def delete_comment(request, comment_id, username):
+    comment = Comment.objects.get(pk=comment_id)
+    comment.delete()
     return redirect('home', usernameLogin=username)

@@ -3,12 +3,19 @@
 <head>
     <title>Lista de usuarios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/styles.css">
 </head>
-<body>
-    <ul>
+<body class="body">
+    <ul> 
+        <h1>{{ siteName}}</h1>
         <h1>POSTS:</h1>
+
+        <div class="">wdwwwdwwd</div>
+    
         {% for post in posts %}
         <div class="card m-3">
+            <p>Autor: {{ post.author }}</p>
+            <p>Contador de entradas: {{ author.entry_count }}</p>
             <div class="card-body">
               <div class="d-flex align-items-center">
                 {% comment %} <img src="ruta-de-la-imagen-del-autor.jpg" class="rounded-circle me-3" alt="Imagen del autor" style="width: 50px;"> {% endcomment %}
@@ -24,7 +31,7 @@
                     {% csrf_token %}
                     <button class = "btn btn-danger m-3"type="submit">Eliminar</button>
                   </form>
-                {% endif %}
+              {% endif %}
 
               <button type="button" class="btn btn-primary m-3" data-toggle="collapse" data-target="#commentForm{{ post.id }}">
                 Escribir comentario
@@ -47,36 +54,26 @@
                   <ul class="list-unstyled">
                     {% for comment in comments %}
                       {% if post.id == comment.post.id %}
-
-
                         <div class="card bg-primary text-left m-3" style="backcolor" >
                           <img class="card-img-top" src="holder.js/100px180/" alt="">
-                          <div class="card-body">
-                            
-                              
+                          <div class="card-body"> 
                             <h3>{{ comment.author }}</h3>
                             <p>{{ comment.text }}</p>
                             <label>{{ comment.creation_date }}</label>
-                              
-                            
                           </div>
+                          {% if comment.author.username == username %}
+                              <form action="{% url 'delete_comment' comment.id username%}" method="POST">
+                                <div class="container">
+                                  <button id="delete_comment" type="submit" name="delete_comment" class="btn btn-danger m-2">Borrar Comentario</button>
+                                </div>
+                              </from>
+                          {% endif %}
                         </div>
-
-
-                        {% comment %} <li>
-                          <ul>
-                            <li>{{ comment.author }}</li>
-                            <li>{{ comment.text }}</li>
-                            <li>{{ comment.creation_date }}</li>
-                          </ul>
-                        </li> {% endcomment %}
                       {% endif %}
                     {% endfor %}
                   </ul>
                 </div>
               </div>
-
-
             </div>
           </div>
         {% endfor %}

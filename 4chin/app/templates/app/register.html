@@ -1,74 +1,74 @@
 <!doctype html>
+{% load static %}
 <html lang="en">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
-      
-
-    {% comment %} REGISTRO {% endcomment %}
-    <form method="post" action="{% url 'register' %}">
-        {% csrf_token %}
-        <label for="username">Nombre:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <input type="submit" value="Registrar">
-    </form>
-
-    <h1> Ya estas Registrado? Inicia Sesion</h1>
-    <button type="button"  class="btn btn-primary" onclick="redirectToLogin()">
-       Login
-    </button>
-
+  <body class="body">
     
-    {% comment %} <h1> Ya estas Registrado? Inicia Sesion</h1>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-       Login
-    </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Mi Sitio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Modal de login -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class=>
+        <div class="container m-5">
+            <div class="card-columns">
+                <div class="card">
+                    <div class="container">
+                        <form method="post" action="{% url 'register' %}" class="my-4">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="username">Nombre:</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo electrónico:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Contraseña:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <!-- Agrega aquí los campos de nombre de usuario y contraseña -->
-                    <form method="post" action="{% url 'account' %}">
-                        {% csrf_token %}
-                        <label for="username">Nombre de usuario:</label>
-                        <input type="text" id="username" name="username" required><br><br>
-        
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" required><br><br>
-        
-                        <input type="submit" class="btn btn-primary" value="Iniciar sesión">
-                    </form>
+                <div class="container">
+                    <h3 class="Title m-2">¿Ya estás registrado? Inicia sesión</h1>
+                    <button type="button" class="btn btn-primary m-2" onclick="redirectToLogin()">Login</button>
                 </div>
             </div>
         </div>
-    </div> {% endcomment %}
-
-
-
-
-
+    </div>
     <script>
         function redirectToLogin() {
           window.location.href = "login"; 
