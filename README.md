@@ -16,15 +16,14 @@ Este es un blog desarrollado utilizando el framework Django.
 4. Aplicar las migraciones de la base de datos ejecutando el comando `python manage.py migrate`.
 5. Iniciar el servidor de desarrollo ejecutando el comando `python manage.py runserver`.
 
-## Uso
-
 ## Admin
-Usuario: admin
-Contraseña: admin
+- Usuario: admin
+- Contraseña: admin
 
+## Uso
 - Accede al blog en tu navegador web utilizando la URL `http://localhost:8000`.
+- Regístrate o Logueate como usuario para poder crear, y eliminar tus propios artículos.
 - Navega por los diferentes artículos publicados.
-- Regístrate como usuario para poder crear, editar y eliminar tus propios artículos.
 - Comenta en los artículos publicados por otros usuarios.
 
 ## Estructura del proyecto
