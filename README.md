@@ -13,26 +13,21 @@ Este es un blog desarrollado utilizando el framework Django.
 1. Clonar el repositorio o descargar el código fuente.
 2. Crear y activar un entorno virtual.
 3. Instalar las dependencias del proyecto ejecutando el comando `pip install -r requirements.txt`.
-4. Aplicar las migraciones de la base de datos ejecutando el comando `python manage.py migrate`.
-5. Iniciar el servidor de desarrollo ejecutando el comando `python manage.py runserver`.
+4. Aplicar las migraciones de la base de datos ejecutando el comando `python3 manage.py migrate`.
+5. Iniciar el servidor de desarrollo ejecutando el comando `python3 manage.py runserver`.
 
 ## Admin
+
 - Usuario: admin
 - Contraseña: admin
 
 ## Uso
+
 - Accede al blog en tu navegador web utilizando la URL `http://localhost:8000`.
 - Regístrate o Logueate como usuario para poder crear, y eliminar tus propios artículos.
 - Navega por los diferentes artículos publicados.
 - Comenta en los artículos publicados por otros usuarios.
 
-## Estructura del proyecto
+# Otros 
 
-El proyecto está estructurado de la siguiente manera:
-
-- `Sitio/`: Contiene la configuración principal del proyecto Django.
-- `app/`: Contiene la aplicación principal del blog.
-- `templates/`: Directorio que almacena las plantillas HTML.
-- `static/`: Directorio que almacena los archivos estáticos como CSS, JS e imágenes.
-- `media/`: Directorio donde se guardan los archivos multimedia subidos por los usuarios.
-- `manage.py`: Archivo de gestión del proyecto Django.
+- La base de datos ya deberia tener categorias precargadas, si no es el caso, las puede crear desde el admin de Django

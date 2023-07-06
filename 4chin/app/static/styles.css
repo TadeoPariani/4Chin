@@ -1,9 +1,28 @@
 .body {
-    background-color: rgb(3, 32, 46);
+    background-color: rgb(15, 45, 59); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .BackgroundTitle{
     color: white;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.titleContainer{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
 }
 
 

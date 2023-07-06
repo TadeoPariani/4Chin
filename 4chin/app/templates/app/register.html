@@ -1,71 +1,44 @@
 <!doctype html>
-{% load static %}
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>4chin/register</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% load static %}
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
+  
   <body class="body">
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Mi Sitio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Acerca</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class=>
-        <div class="container m-5">
-            <div class="card-columns">
-                <div class="card">
-                    <div class="container">
-                        <form method="post" action="{% url 'register' %}" class="my-4">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label for="username">Nombre:</label>
-                                <input type="text" id="username" name="username" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Correo electrónico:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="password">Contraseña:</label>
-                                <input type="password" id="password" name="password" class="form-control" required>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">Registrar</button>
-                        </form>
+    <div class="container">
+        <div class="card m-5">
+            <div class="container">
+                <form method="post" action="{% url 'register' %}" class="my-4">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Nombre:</label>
+                        <input type="text" id="username" name="username" class="form-control" required>
                     </div>
-                </div>
-                <div class="container">
-                    <h3 class="Title m-2">¿Ya estás registrado? Inicia sesión</h1>
-                    <button type="button" class="btn btn-primary m-2" onclick="redirectToLogin()">Login</button>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <div class="container pt-5">
+                        <h4 class="">¿Ya estás registrado? Inicia sesión</h4>
+                        <button type="button" class="btn btn-primary m-2" onclick="redirectToLogin()">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

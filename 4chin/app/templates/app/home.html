@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de usuarios</title>
+    <title>4chin/home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/styles.css">
 </head>
-<body class="body">
+<body style="background-color: rgb(3, 32, 46); display: flex; align-items: center; justify-content: center;">
     <ul> 
-        <h1>{{ siteName}}</h1>
-        <h1>POSTS:</h1>
+        <h1 style="color: #fff; padding: 20px; text-align: center;">{{ siteName }}</h1>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Crear un Post
+        </button>
 
-        <div class="">wdwwwdwwd</div>
-    
         {% for post in posts %}
-        <div class="card m-3">
-            <p>Autor: {{ post.author }}</p>
-            <p>Contador de entradas: {{ author.entry_count }}</p>
+        <div class="card m-3 p-5">
+            <div class="card-header">
+              <h2 class="card-title">{{ post.title }}</h2>
+              <h5 class="card-title">Autor:   {{ post.author }}</h5>
+              <h6 class="card-subtitle m-2 text-muted">{{ post.creation_date }}</h6>
+              <button style="background-color: #4CAF50; color: white; padding: 0px 2px; border: none; border-radius: 5px; font-size: 16px; text-align: center;"  disabled>
+                <h6 class="card-subtitle m-2">{{ post.category }}</h6>
+              </button>
+            </div>
             <div class="card-body">
-              <div class="d-flex align-items-center">
-                {% comment %} <img src="ruta-de-la-imagen-del-autor.jpg" class="rounded-circle me-3" alt="Imagen del autor" style="width: 50px;"> {% endcomment %}
-              <h5 class="card-title">{{ post.author }}</h5>
+              <div class="d-flex align-items-center m-2">
+              {% comment %} <p class="card-text">{{ post.content }}</p> {% endcomment %}
+              <div style="border-radius: 10px; padding: 10px 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+                <p class="card-text">{{ post.content }}</p>
               </div>
-              <h6 class="card-subtitle text-muted">{{ post.creation_date }}</h6>
-              <h4 class="card-title">{{ post.title }}</h4>
-              <h6 class="card-subtitle mb-2 text-muted">{{ post.category }}</h6>
-              <p class="card-text">{{ post.content }}</p>
+              <hr class="pt-5" style="background-color: #000; height: 3px; margin: 20px;">
+              </div>
 
-              {% if post.author.username == username %}
+              <div style="display: flex; justify-content: ">
+                {% if post.author.username == username %}
                   <form action="{% url 'delete_post' post.id username%}" method="POST">
                     {% csrf_token %}
-                    <button class = "btn btn-danger m-3"type="submit">Eliminar</button>
+                    <button class = "btn btn-danger m-3" style="color: white; padding: 10px 20px; margin: 10px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;"  type="submit">Eliminar</button>
                   </form>
               {% endif %}
+                <button type="button" style="color: white; padding: 10px 20px; margin: 10px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;" class="btn btn-primary m-3" data-toggle="collapse" data-target="#commentForm{{ post.id }}">
+                  Comentar
+                </button>
+              </div>
 
-              <button type="button" class="btn btn-primary m-3" data-toggle="collapse" data-target="#commentForm{{ post.id }}">
-                Escribir comentario
-              </button>
-              
               <div id="commentForm{{ post.id }}" class="collapse">
                 <form method="POST" action="{% url 'make_comment' post.id username %}">
                   {% csrf_token %}
@@ -44,7 +49,7 @@
                     <label for="comment{{ post.id }}">Comentario:</label>
                     <textarea class="form-control" id="comment{{ post.id }}" name="comment" rows="3"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-primary m-3">Enviar comentario</button>
+                  <button type="submit" class="btn btn-primary m-3">Enviar</button>
                 </form>
               </div>
 
@@ -79,9 +84,7 @@
         {% endfor %}
         
     </ul>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Crear un Post
-      </button>
+    
       
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
