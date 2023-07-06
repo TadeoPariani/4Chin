@@ -30,7 +30,7 @@ Este es un blog desarrollado utilizando el framework Django.
 
 El proyecto está estructurado de la siguiente manera:
 
-- `sitio/`: Contiene la configuración principal del proyecto Django.
+- `Sitio/`: Contiene la configuración principal del proyecto Django.
 - `app/`: Contiene la aplicación principal del blog.
 - `templates/`: Directorio que almacena las plantillas HTML.
 - `static/`: Directorio que almacena los archivos estáticos como CSS, JS e imágenes.
