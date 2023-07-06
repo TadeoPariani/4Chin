@@ -18,6 +18,10 @@ Este es un blog desarrollado utilizando el framework Django.
 
 ## Uso
 
+## Admin
+Usuario: admin
+Contraseña: admin
+
 - Accede al blog en tu navegador web utilizando la URL `http://localhost:8000`.
 - Navega por los diferentes artículos publicados.
 - Regístrate como usuario para poder crear, editar y eliminar tus propios artículos.
