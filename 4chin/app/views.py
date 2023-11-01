@@ -1,7 +1,26 @@
 from django.contrib.auth import authenticate
+from rest_framework import viewsets
 from django.shortcuts import render, redirect
 from .models import User, Post, Category, Comment
 from datetime import datetime
+from .serializers import UserSerializer, PostSerializer, CommentSerializer, CategorySerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
 
 def register(request):
     if request.method == 'POST':

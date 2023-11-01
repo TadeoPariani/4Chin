@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+# from app.views import login
+# from app.views import register
 
 urlpatterns = [
-    path("app/", include("app.urls")),
+    # path("", register),  # Esta es la nueva ruta para la raíz del sitio
+    # path("login", login),
+    path("", include("app.urls")),
     path("admin/", admin.site.urls),
 ]
