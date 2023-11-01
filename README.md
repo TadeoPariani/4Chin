@@ -68,6 +68,7 @@ Respuesta:
     "password": "1234"
   }
 ]
+```json
 
 #### Crear un nuevo usuario
 
@@ -77,7 +78,7 @@ Respuesta:
 
 **Solicitud**
 
-```json
+
 {
     "nombre": "Juan",
     "correo": "juan@example.com",
