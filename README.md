@@ -6,6 +6,7 @@ Este es un blog desarrollado utilizando el framework Django.
 
 - Python 3.x
 - Django 3.x
+- Django REST FrameWork 3.x
 - Otros requisitos del entorno virtual o servidor de desarrollo si los hay
 
 ## Instalación
@@ -28,6 +29,103 @@ Este es un blog desarrollado utilizando el framework Django.
 - Navega por los diferentes artículos publicados.
 - Comenta en los artículos publicados por otros usuarios.
 
+<<<<<<< Updated upstream
+=======
+
+## Uso de la API
+
+La API Posee los endpoints de Users, Posts, Comments y Categories.
+
+Tanto el GET, POST y DELETE se realizan de igual forma para cualquier modelo:
+
+- Endpoint: http://127.0.0.1:8000/api/-modelo_requerido-/
+
+- Endpoint: http://127.0.0.1:8000/api/posts/
+
+- Endpoint: http://127.0.0.1:8000/api/usuarios/
+
+- Endpoint: http://127.0.0.1:8000/api/comentarios/
+
+- Endpoint: http://127.0.0.1:8000/api/categorias/
+
+
+#### Traer un Usuario
+
+- Método: `GET`
+- Endpoint: http://127.0.0.1:8000/api/usuarios/
+
+Respuesta:
+
+[
+  {
+    "id": 21,
+    "username": "tadeo",
+    "email": "parianitadeo@gmail.com",
+    "password": "tadeo"
+  },
+  {
+    "id": 22,
+    "username": "prueba1",
+    "email": "email@gmail.com",
+    "password": "1234"
+  },
+  {
+    "id": 23,
+    "username": "prueba2",
+    "email": "email@gmail.com",
+    "password": "1234"
+  }
+]
+
+
+#### Crear un nuevo usuario
+
+- Método: `POST`
+- Endpoint: http://127.0.0.1:8000/api/usuarios/
+
+**Solicitud**
+
+{
+    "nombre": "Juan",
+    "correo": "juan@example.com",
+    "edad": 25
+}
+
+Respuesta:
+
+{
+    "id": 1,
+    "nombre": "Juan",
+    "correo": "juan@example.com",
+    "edad": 25
+}
+
+Response Headers: 
+
+Header Value
+date: Wed, 01 Nov 2023 22:39:12 GMT
+server: WSGIServer/0.2 CPython/3.10.12
+content-type: application/json
+vary: Accept, Cookie
+allow: GET, POST, HEAD, OPTIONS
+x-frame-options: DENY
+content-length: 74
+x-content-type-options: nosniff
+referrer-policy: same-origin
+cross-origin-opener-policy: same-origin
+
+
+#### Borrar un post
+
+debe incluir en la url el id del post a borrar
+
+- Método: `DELETE`
+- Endpoint: http://127.0.0.1:8000/api/posts/34
+
+Puede verificar si se ha borrado realizando un GET o viendolo desde el Admin de Django
+
+
+>>>>>>> Stashed changes
 # Otros 
 
 - La base de datos ya deberia tener categorias precargadas, si no es el caso, las puede crear desde el admin de Django

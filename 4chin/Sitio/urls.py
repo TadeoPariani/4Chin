@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+<<<<<<< Updated upstream
     path("app/", include("app.urls")),
+=======
+    path("", include("app.urls")),
+>>>>>>> Stashed changes
     path("admin/", admin.site.urls),
 ]
