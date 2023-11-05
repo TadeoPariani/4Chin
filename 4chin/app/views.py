@@ -22,8 +22,8 @@ class PostViewSet(viewsets.ModelViewSet):
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -62,10 +62,11 @@ def login(request):
     return render(request, 'app/login.html')
 
 
-def home(request, usernameLogin):
+def home(request, usernameLogin, format=None):
     context = {
         'username':usernameLogin,
     }
+
     # CREAR UN POST. DEBERIA SER OTRA VIEW SEPARADA
     if request.method == "POST":
         author = User.objects.get(username=usernameLogin)

@@ -29,8 +29,6 @@ Este es un blog desarrollado utilizando el framework Django.
 - Navega por los diferentes artículos publicados.
 - Comenta en los artículos publicados por otros usuarios.
 
-<<<<<<< Updated upstream
-=======
 
 ## Uso de la API
 
@@ -45,8 +43,6 @@ Tanto el GET, POST y DELETE se realizan de igual forma para cualquier modelo:
 - Endpoint: http://127.0.0.1:8000/api/usuarios/
 
 - Endpoint: http://127.0.0.1:8000/api/comentarios/
-
-- Endpoint: http://127.0.0.1:8000/api/categorias/
 
 
 #### Traer un Usuario
@@ -100,19 +96,21 @@ Respuesta:
     "edad": 25
 }
 
-Response Headers: 
+---------------------------------------------------------------------------------
 
-Header Value
-date: Wed, 01 Nov 2023 22:39:12 GMT
-server: WSGIServer/0.2 CPython/3.10.12
-content-type: application/json
-vary: Accept, Cookie
-allow: GET, POST, HEAD, OPTIONS
-x-frame-options: DENY
-content-length: 74
-x-content-type-options: nosniff
-referrer-policy: same-origin
-cross-origin-opener-policy: same-origin
+#### Crear un post
+
+- Método: `POST`
+- Endpoint: http://127.0.0.1:8000/api/posts/
+
+**Solicitud**
+
+{
+  "author":21,
+  "title": "prueba23",
+  "content": "prueba23",
+  "category_id": 2
+}
 
 
 #### Borrar un post
@@ -125,7 +123,6 @@ debe incluir en la url el id del post a borrar
 Puede verificar si se ha borrado realizando un GET o viendolo desde el Admin de Django
 
 
->>>>>>> Stashed changes
 # Otros 
 
 - La base de datos ya deberia tener categorias precargadas, si no es el caso, las puede crear desde el admin de Django
