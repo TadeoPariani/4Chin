@@ -6,6 +6,7 @@ Este es un blog desarrollado utilizando el framework Django.
 
 - Python 3.x
 - Django 3.x
+- Django REST FrameWork 3.x
 - Otros requisitos del entorno virtual o servidor de desarrollo si los hay
 
 ## Instalación
@@ -33,19 +34,33 @@ Este es un blog desarrollado utilizando el framework Django.
 
 La API Posee los endpoints de Users, Posts, Comments y Categories.
 
+<<<<<<< HEAD
 Tanto el GET como el POST se realizan de igual forma para cualquier modelo:
+=======
+Tanto el GET, POST y DELETE se realizan de igual forma para cualquier modelo:
+>>>>>>> prueba
 
 - Endpoint: http://127.0.0.1:8000/api/-modelo_requerido-/
 
 - Endpoint: http://127.0.0.1:8000/api/posts/
 
+<<<<<<< HEAD
+=======
+- Endpoint: http://127.0.0.1:8000/api/usuarios/
+
+- Endpoint: http://127.0.0.1:8000/api/comentarios/
+
+>>>>>>> prueba
 
 #### Traer un Usuario
 
 - Método: `GET`
 - Endpoint: http://127.0.0.1:8000/api/usuarios/
 
+<<<<<<< HEAD
 ```json
+=======
+>>>>>>> prueba
 Respuesta:
 
 [
@@ -68,17 +83,26 @@ Respuesta:
     "password": "1234"
   }
 ]
+<<<<<<< HEAD
 ```json
+=======
+
+>>>>>>> prueba
 
 #### Crear un nuevo usuario
 
 - Método: `POST`
 - Endpoint: http://127.0.0.1:8000/api/usuarios/
 
+<<<<<<< HEAD
 
 **Solicitud**
 
 
+=======
+**Solicitud**
+
+>>>>>>> prueba
 {
     "nombre": "Juan",
     "correo": "juan@example.com",
@@ -94,6 +118,7 @@ Respuesta:
     "edad": 25
 }
 
+<<<<<<< HEAD
 Response Headers: 
 
 Header Value
@@ -107,6 +132,33 @@ content-length: 74
 x-content-type-options: nosniff
 referrer-policy: same-origin
 cross-origin-opener-policy: same-origin
+=======
+---------------------------------------------------------------------------------
+
+#### Crear un post
+
+- Método: `POST`
+- Endpoint: http://127.0.0.1:8000/api/posts/
+
+**Solicitud**
+
+{
+  "author":21,
+  "title": "prueba23",
+  "content": "prueba23",
+  "category_id": 2
+}
+
+
+#### Borrar un post
+
+debe incluir en la url el id del post a borrar
+
+- Método: `DELETE`
+- Endpoint: http://127.0.0.1:8000/api/posts/34
+
+Puede verificar si se ha borrado realizando un GET o viendolo desde el Admin de Django
+>>>>>>> prueba
 
 
 # Otros 
