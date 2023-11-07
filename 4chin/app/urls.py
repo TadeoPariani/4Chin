@@ -2,12 +2,9 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from . import views
 from .views import UserViewSet, PostViewSet, CommentViewSet, CategoryViewSet
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
-router = DefaultRouter()
-router.register(r'usuarios', UserViewSet)
-router.register(r'posts', PostViewSet)
-router.register(r'comentarios', CommentViewSet)
-router.register(r'categorias', CategoryViewSet)
+from . import views
 
 urlpatterns = [
     path("", views.register, name="register"),
@@ -18,6 +15,15 @@ urlpatterns = [
     path("delete_comment/<int:comment_id>/<str:username>", views.delete_comment, name="delete_comment"),
 ]
 
+router = DefaultRouter()
+router.register(r'usuarios', UserViewSet)
+router.register(r'posts', PostViewSet)
+router.register(r'comentarios', CommentViewSet)
+router.register(r'categorias', CategoryViewSet)
+
 urlpatterns += [
     path('api/', include(router.urls)),
+    # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
