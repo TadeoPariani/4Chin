@@ -34,9 +34,6 @@ Este es un blog desarrollado utilizando el framework Django.
 
 La API Posee los endpoints de Users, Posts, Comments y Categories.
 
-
-Tanto el GET como el POST se realizan de igual forma para cualquier modelo:
-
 Tanto el GET, POST y DELETE se realizan de igual forma para cualquier modelo:
 
 
@@ -143,7 +140,6 @@ debe incluir en la url el id del post a borrar
 - Endpoint: http://127.0.0.1:8000/api/posts/34
 
 Puede verificar si se ha borrado realizando un GET o viendolo desde el Admin de Django
->>>>>>> prueba
 
 
 # Otros 
