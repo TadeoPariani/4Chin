@@ -101,20 +101,6 @@ Respuesta:
     "edad": 25
 }
 
-Response Headers: 
-
-Header Value
-date: Wed, 01 Nov 2023 22:39:12 GMT
-server: WSGIServer/0.2 CPython/3.10.12
-content-type: application/json
-vary: Accept, Cookie
-allow: GET, POST, HEAD, OPTIONS
-x-frame-options: DENY
-content-length: 74
-x-content-type-options: nosniff
-referrer-policy: same-origin
-cross-origin-opener-policy: same-origin
-=======
 ---------------------------------------------------------------------------------
 
 #### Crear un post
