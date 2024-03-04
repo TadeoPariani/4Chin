@@ -1,4 +1,4 @@
-# Blog_Django_REST
+# 4Chin
 
 Este es un blog desarrollado utilizando el framework Django.
 
