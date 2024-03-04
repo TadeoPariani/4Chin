@@ -1,4 +1,4 @@
-# Blog_Django
+# Blog_Django_REST
 
 Este es un blog desarrollado utilizando el framework Django.
 
