@@ -10,6 +10,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           Crear un Post
         </button>
+        <a href="http://127.0.0.1:8000/login" class="btn btn-primary">Salir</a>
 
         {% for post in posts %}
         <div class="card m-3 p-5">
@@ -55,7 +56,7 @@
 
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Comentarios</h5>
+                  <h5 class="card-title">Comentarios: {{ comments|length }} </h5>
                   <ul class="list-unstyled">
                     {% for comment in comments %}
                       {% if post.id == comment.post.id %}
